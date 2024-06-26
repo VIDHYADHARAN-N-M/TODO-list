@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO list</title>
+    <link rel="stylesheet" href="Todolist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="outer">
+        <center>
+            <div class="container">
+                <u>
+                    <h2>TODO LIST</h2>
+                </u>
+                <input type="text" id="input" placeholder="Add Task">
+                <button style="font-size:20px; padding:5px; margin-top:5px; background-color:rgb(91, 211, 91)"
+                    onclick="addlist()"><i class="fa fa-plus"></i></button>
+                <h3>
+                    <ul id="list-id" class="list-container">
+
+                    </ul>
+                </h3>
+            </div>
+        </center>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+
+    var ul = document.getElementById('list-id')
+    var inputtext = document.getElementById('input')
+
+    function addlist() {
+        var newElement = document.createElement("li")
+        newElement.innerHTML = inputtext.value + "<button style='font-size:14px; background-color:red; margin:9px; padding:5px' onclick='deletelist(event)'> <i class='fa fa-trash-o'></i></button>"
+        ul.append(newElement)
+    }
+
+    function deletelist(event){
+        event.target.closest('li').remove()
+    }
+
+</script>
